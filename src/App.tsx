@@ -10,8 +10,8 @@ const App = () => {
     <ThirdwebProvider
     activeChain={activeChainId}
     authConfig={{
-      domain: "http://localhost:3000",
-      authUrl: "http://localhost:4200/api/v1/auth",
+      domain: "https://web3-auth-client.onrender.com",
+      authUrl: "https://web3-auth-wo5n.onrender.com/api/v1/auth",
     }}
     >
       <div className="App">

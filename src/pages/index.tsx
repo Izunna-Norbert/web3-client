@@ -13,9 +13,7 @@ import axios from 'axios';
 
 axios.interceptors.response.use(
     (response) => {
-      console.info('gun man');
       if (response.status === 200 && response.data.token) {
-        console.info('gun man')
         localStorage.setItem('token', response.data.token);
       }
       return response;
@@ -52,7 +50,6 @@ axios.interceptors.response.use(
     
         async function handleLogin() {
         try {
-            console.log('login');
             const token = await login();
             console.log('token', token);
         } catch (error) {
