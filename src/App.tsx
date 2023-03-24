@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+import IndexPage from "./pages";
+import WalletPage from "./pages/wallet";
 
-function App() {
+const activeChainId = ChainId.Mainnet;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ThirdwebProvider
+    activeChain={activeChainId}
+    authConfig={{
+      domain: "http://localhost:3000",
+      authUrl: "http://localhost:4200/api/v1/auth",
+    }}
+    >
+      <div className="App">
+        <h1>Thirdweb React SDK</h1>
+      </div>
+      <IndexPage />
+    </ThirdwebProvider>
+    </>
   );
-}
+};
 
 export default App;
